@@ -4,5 +4,11 @@ Rails.application.routes.draw do
     sessions: "headhunters/devise/sessions"
   }
 
+  namespace :headhunters do
+    namespace :admin do
+      resources :jobs
+    end
+  end
+
   root 'home#index'
 end
