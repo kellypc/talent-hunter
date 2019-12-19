@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   namespace :headhunters do
     namespace :admin do
-      resources :jobs
+      resources :jobs do
+        post :inactive
+      end
     end
   end
 

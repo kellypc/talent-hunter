@@ -1,0 +1,54 @@
+<% if @job.errors.any? %>
+  <p>Você deve corrigir os seguintes erros para continuar</p>
+  <ul>
+    <% @job.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for ([:headhunters, :admin, @job]) do |f| %>
+
+  <div class="form-group mt-4">
+    <%= f.label :title, "Título da vaga" %><br />
+    <%= f.text_field :title, class: "form-control col-md-6" %>
+  </div>
+
+  <div class="form-group mt-4" id="job-levels">
+    <%= f.label :level_job, "Nível" %><br />
+    <%= f.collection_radio_buttons :level_job, Job.level_jobs, :second, :first %></div>
+
+  <div class="form-group mt-4">
+    <%= f.label :description, "Descrição" %><br />
+    <%= f.text_area :description, class: "form-control col-md-6", rows: 7 %>
+  </div>
+
+  <div class="form-group mt-4">
+    <%= f.label :skills, "Habilidades Desejadas" %><br />
+    <%= f.text_area :skills, class: "form-control col-md-6", rows: 7 %>
+  </div>
+
+  <div class="form-group mt-4">
+    <%= f.label :salary, "Salário" %><br />
+    <%= f.text_field :salary, class: "form-control col-md-6" %>
+  </div>
+
+  <div class="form-group mt-4">
+    <%= f.label :start_date, "Data de início" %><br />
+    <%= f.text_field :start_date, class: "form-control col-md-6" %>
+  </div>
+
+  <div class="form-group mt-4">
+    <%= f.label :end_date, "Data limite" %><br />
+    <%= f.text_field :end_date, class: "form-control col-md-6" %>
+  </div>
+
+  <div class="form-group mt-4">
+    <%= f.label :local_job, "Local de trabalho" %><br />
+    <%= f.text_field :local_job, class: "form-control col-md-6" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Salvar", class: "btn btn-primary" %>
+  </div>
+<% end %>

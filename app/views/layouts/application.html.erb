@@ -12,8 +12,12 @@
   <body>
     <%= render "layouts/header" %>
     <div class="">
-      <%= render 'layouts/messages' %>
-      <%= yield %>
+      <div class="container-fluid wrapper">
+        <div class="row">
+          <%= render 'headhunters/admin/sidebar' %>
+          <%= yield %>
+        </div>
+      </div>
       <%= render "layouts/footer" %>
     </div>
   </body>
