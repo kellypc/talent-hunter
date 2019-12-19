@@ -5,10 +5,11 @@ class CreateJobs < ActiveRecord::Migration[5.2]
       t.text :description
       t.text :skills
       t.integer :salary
-      t.integer :level_job
+      t.integer :job_level
       t.date :start_date
       t.date :end_date
       t.string :local_job
+      t.integer :status
       t.references :headhunter, foreign_key: true
 
       t.timestamps

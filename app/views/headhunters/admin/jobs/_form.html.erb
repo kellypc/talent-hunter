@@ -15,8 +15,8 @@
   </div>
 
   <div class="form-group mt-4" id="job-levels">
-    <%= f.label :level_job, "Nível" %><br />
-    <%= f.collection_radio_buttons :level_job, Job.level_jobs, :second, :first %></div>
+    <%= f.label :job_level, "Nível" %><br />
+    <%= f.collection_radio_buttons :job_level, Job.job_levels, :second, :first %></div>
 
   <div class="form-group mt-4">
     <%= f.label :description, "Descrição" %><br />

@@ -30,10 +30,11 @@ ActiveRecord::Schema.define(version: 2019_12_17_222108) do
     t.text "description"
     t.text "skills"
     t.integer "salary"
-    t.integer "level_job"
+    t.integer "job_level"
     t.date "start_date"
     t.date "end_date"
     t.string "local_job"
+    t.integer "status"
     t.integer "headhunter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

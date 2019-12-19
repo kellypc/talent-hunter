@@ -39,13 +39,16 @@ class Headhunters::Admin::JobsController < ApplicationController
   end
 
   def inactive
-    
+    @job = Job.find(params[:job_id])
+    @job.inativo!
+    flash[:notice] = 'Vaga desativada com sucesso'
+    redirect_to headhunters_admin_jobs_path
   end
 
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :skills, :salary, :level_job,
+    params.require(:job).permit(:title, :description, :skills, :salary, :job_level,
                                 :start_date, :end_date, :local_job)
   end
 
