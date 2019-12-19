@@ -1,22 +1,22 @@
 require 'rails_helper'
-feature 'Headhunter create job' do
+feature 'Headhunter edit job' do
   scenario 'successfully' do
     headhunter = Headhunter.create!(name: 'Teste', email: 'test@test.com', password: '123456')
+
+    job = Job.create!(title: 'Desenvolvedora', description: 'testando',
+                      skills: 'testando', salary: 3.000, job_level: 'Júnior',
+                      start_date: '23/01/2012', end_date: '23/02/2020',
+                      local_job: 'Remoto', headhunter: headhunter)
 
     login_as(headhunter, scope: :headhunter)
 
     visit root_path
     click_link 'Admin'
     click_on 'Vagas'
-    click_link 'Cadastrar vaga'
+
+    find('[name=edit-job]').click
 
     fill_in 'Título da vaga', with: 'Desenvolvedor full stack'
-    fill_in 'Descrição', with: 'Descrição para teste'
-    fill_in 'Habilidades Desejadas', with: 'Habilidades para teste'
-    fill_in 'Salário', with: 4.000
-    fill_in 'Data limite', with: '23/01/2020'
-    fill_in 'Local de trabalho', with: 'Remoto'
-    choose 'Júnior'
 
     click_button 'Salvar'
 
