@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  devise_for :candidates, path: 'candidates', controllers: {
+    registrations: "candidates/devise/registrations"
+  }
+
   devise_for :headhunters, path: 'headhunters', controllers: {
     registrations: "headhunters/devise/registrations",
     sessions: "headhunters/devise/sessions"
