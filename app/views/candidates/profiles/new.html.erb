@@ -1,0 +1,62 @@
+<div class="container">
+  <h4 class="pt-5">Olá Candidato</h4>
+  <h3 class="pt-3">Preencha seu perfil para que possamos te conhecer</h3>
+  <%= form_for ([:candidates, @profile]) do |f| %>
+
+    <div class="form-group mt-4">
+      <%= f.label :full_name, "Nome completo" %><br />
+      <%= f.text_field :full_name, class: "form-control col-md-6" %>
+    </div>
+
+    <div class="form-group mt-4"">
+      <%= f.label :social_name, "Nome social" %><br />
+      <%= f.text_field :social_name, class: "form-control col-md-6" %>
+    </div>
+    <div class="form-group mt-4"">
+      <%= f.label :title, "Título" %><br />
+      <%= f.text_field :title, class: "form-control col-md-6" %>
+    </div>
+    <div class="form-group mt-4"">
+      <%= f.label :phone_number, "Número de telefone" %><br />
+      <%= f.text_field :phone_number, class: "form-control col-md-6" %>
+    </div>
+    <div class="form-group mt-4"">
+      <%= f.label :address, "Endereço" %><br />
+      <%= f.text_field :address, class: "form-control col-md-6" %>
+    </div>
+
+    <div class="form-group mt-4">
+      <%= f.label :bith_date, "Data de nascimento" %><br />
+      <%= f.text_field :bith_date, class: "form-control col-md-6" %>
+    </div>
+
+    <div class="form-group mt-4">
+      <%= f.label :academic_formation, "Formação acadêmica" %><br />
+      <%= f.text_field :academic_formation, class: "form-control col-md-6" %>
+    </div>
+
+    <div class="form-group mt-4">
+      <%= f.label :description, "Descrição" %><br />
+      <%= f.text_area :description, class: "form-control col-md-6", rows: 4 %>
+    </div>
+
+    <div class="form-group mt-4">
+      <%= f.label :skills, "Habilidades" %><br />
+      <%= f.text_area :skills, class: "form-control col-md-6", rows: 4 %>
+    </div>
+
+    <div class="form-group mt-4">
+      <%= f.label :experience, "Experiência" %><br />
+      <%= f.text_area :experience, class: "form-control col-md-6", rows: 4 %>
+    </div>
+
+    <div class="field">
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Salvar", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

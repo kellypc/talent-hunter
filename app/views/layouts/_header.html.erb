@@ -28,6 +28,7 @@
           <span class="col-md-6"><%= link_to('Admin', headhunters_admin_jobs_path, class: "btn btn-primary") %></span>
           <span class="col-md-6"><%= link_to('Sair', destroy_headhunter_session_path, method: :delete, class: "btn btn-primary") %></span>
         <% elsif candidate_signed_in? %>
+          <%= link_to('Criar perfil', new_candidates_profile_path, class: "btn btn-primary mr-3") %>
           <span class="col-md-6"><%= link_to('Sair', destroy_candidate_session_path, method: :delete, class: "btn btn-primary") %></span>
         <% else %>
           <%= link_to('Entrar como Candidato', new_candidate_session_path, class: "btn btn-primary mr-3") %>

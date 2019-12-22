@@ -17,5 +17,9 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :candidates do
+    resources :profiles
+  end
+
   root 'home#index'
 end
