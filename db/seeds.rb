@@ -28,7 +28,7 @@ Candidate.create!(
     title: "Vaga #{index + 1}",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur feugiat eros eget dui eleifend scelerisque. Sed quis mauris vitae augue scelerisque suscipit vel non enim. Praesent luctus neque nec semper finibus. Cras feugiat nulla consectetur tortor dignissim aliquam. Curabitur id nulla velit. Nunc fermentum justo metus, sed maximus ligula bibendum eu. Morbi accumsan magna eu nisi placerat, a tempor sapien lobortis. ",
     skills: "Ruby, Rails, Heroku, CSS, Javascript",
-    salary: 1.000 * (index + 1),
+    salary: 1000 * (index + 1),
     job_level: Job.job_levels.values.sample,
     start_date: Date.today,
     end_date: Date.today + 30.days,

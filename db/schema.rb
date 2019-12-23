@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2019_12_22_173446) do
     t.string "title"
     t.text "description"
     t.text "skills"
-    t.integer "salary"
+    t.float "salary"
     t.integer "job_level"
     t.date "start_date"
     t.date "end_date"

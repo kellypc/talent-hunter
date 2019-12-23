@@ -25,6 +25,9 @@ class Headhunters::Admin::JobsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def edit
   end
 

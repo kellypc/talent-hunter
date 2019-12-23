@@ -1,27 +1,33 @@
 <main role="main">
   <div class="album py-5 bg-light">
     <div class="container">
-      <div class="row">
-        <% @jobs.each do |job| %>
-          <div class="col-md-3 m-0 p-2">
-            <div class="card pb-2">
-              <div class="card-body">
-                <h5 class="card-title"><%= job.title %></h5>
-                <div class="job-badges">
-                  <% job.skills.split(",").each do |skill| %>
-                    <span class="badge badge-success"><%= skill %></span>
-                  <% end %>
+      <% if current_candidate.present? %>
+        <div class="row">
+          <% @jobs.each do |job| %>
+            <div class="col-md-3 m-0 p-2">
+              <div class="card pb-2">
+                <div class="card-body">
+                  <h5 class="card-title"><%= job.title %></h5>
+                  <div class="job-badges">
+                    <% job.skills.split(",").each do |skill| %>
+                      <span class="badge badge-success"><%= skill %></span>
+                    <% end %>
+                  </div>
+                  <div class="job-level mt-3 mb-3">
+                    <span>Nível: <b><%= Job.job_levels.key(job.job_level).capitalize %></b></span>
+                  </div>
+                  <p class="card-text"><%= job.description[0..170]... %></p>
+                  <%= link_to "Mais detalhes", job_path(job), class: "btn btn-primary" %>
                 </div>
-                <div class="job-level mt-3 mb-3">
-                  <span>Nível: <b><%= Job.job_levels.key(job.job_level).capitalize %></b></span>
-                </div>
-                <p class="card-text"><%= job.description[0..170]... %></p>
-                <a href="#" class="btn btn-primary">Mais detalhes</a>
               </div>
             </div>
-          </div>
-        <% end %>
-      </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="text-center">
+          <h5>Acesse sua conta para ver as vagas disponíveis!</h5>
+        </div>
+      <% end %>
     </div>
   </div>
 </main>
