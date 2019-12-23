@@ -9,6 +9,8 @@
     </div>
   </section>
 
+  <%= render 'layouts/messages' %>
+  
   <section>
     <div class="container">
       <div class="row">
@@ -27,7 +29,15 @@
                 <% end %>
               </ul>
 
-              <%= link_to "Candidate-se", root_path, class: "btn btn-primary mt-3" %>
+              <% if current_candidate.can_apply_to_job?(@job.id) %>
+                <%= form_for @job_application, url: job_job_applications_path(@job) do |f| %>
+                  <%= f.submit "Candidate-se", class: "btn btn-primary mt-3", :data => {:confirm => 'Confirma candidatura para esta vaga?'} %>
+                <% end %>
+              <% else %>
+                <div class="alert alert-warning mt-5" role="alert">
+                  Você já se candidatou a essa vaga.
+                </div>
+              <% end %>
             </div>
           </div>
         </div>

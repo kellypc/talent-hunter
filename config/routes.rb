@@ -21,7 +21,9 @@ Rails.application.routes.draw do
     resources :profiles
   end
 
-  resources :jobs
+  resources :jobs do
+    resources :job_applications
+  end
 
   root 'home#index'
 end

@@ -5,4 +5,9 @@ class Candidate < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :profile
+  has_many :job_applications
+
+  def can_apply_to_job?(job_id)
+    self.job_applications.where(job_id: job_id).blank?
+  end
 end
