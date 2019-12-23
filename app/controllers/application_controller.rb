@@ -6,4 +6,13 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
+
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) ||
+      if resource.is_a?(Candidate) && resource.present?
+        headhunters_admin_jobs_path
+      else
+        super
+      end
+  end
 end

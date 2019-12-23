@@ -6,8 +6,33 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Job.delete_all
+Headhunter.delete_all
+Candidate.delete_all
+
+headhunter = Headhunter.create!(
+  name: "Tallent Hunter",
+  email: "headhunter@tallent.com",
+  password: "123456",
+  password_confirmation: "123456"
+)
+
 Candidate.create!(
   name: "Candidate Tallent",
   email: "candidate@tallent.com",
   password: "123456",
-  password_confirmation: "123456" )
+  password_confirmation: "123456")
+
+10.times.each do |index|
+  Job.create!(
+    title: "Vaga #{index + 1}",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur feugiat eros eget dui eleifend scelerisque. Sed quis mauris vitae augue scelerisque suscipit vel non enim. Praesent luctus neque nec semper finibus. Cras feugiat nulla consectetur tortor dignissim aliquam. Curabitur id nulla velit. Nunc fermentum justo metus, sed maximus ligula bibendum eu. Morbi accumsan magna eu nisi placerat, a tempor sapien lobortis. ",
+    skills: "Ruby, Rails, Heroku, CSS, Javascript",
+    salary: 1.000 * (index + 1),
+    job_level: Job.job_levels.values.sample,
+    start_date: Date.today,
+    end_date: Date.today + 30.days,
+    local_job: "Av Paulista, 312 - São Paulo - SP",
+    status: :ativo,
+    headhunter_id: headhunter.id)
+end

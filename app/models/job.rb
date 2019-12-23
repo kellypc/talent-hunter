@@ -1,8 +1,10 @@
 class Job < ApplicationRecord
+  validates :title, :description, :skills, :salary, :job_level, presence: true
+  validates :start_date, :local_job, presence: true
 
   belongs_to :headhunter
 
-  enum job_levels: { Estagiário: 0, Júnior: 5, Pleno: 10, Sênior: 15, Especialista: 20, Diretor: 25 }
+  enum job_levels: { estagiario: 0, junior: 5, pleno: 10, senior: 15, especialista: 20, diretor: 25 }
 
   enum status: { ativo: 0, inativo: 1 }
 
