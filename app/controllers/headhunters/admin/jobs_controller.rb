@@ -52,7 +52,7 @@ class Headhunters::Admin::JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit(:title, :description, :skills, :salary, :job_level,
-                                :start_date, :end_date, :local_job)
+                                :start_date, :end_date, :local_job, :status)
   end
 
   def set_job

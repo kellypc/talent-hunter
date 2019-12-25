@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
         resources :job_applications
       end
+
+      resources :profiles
     end
   end
 

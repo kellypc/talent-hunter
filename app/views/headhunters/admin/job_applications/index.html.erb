@@ -27,7 +27,7 @@
             <td><%= job_application.created_at %></td>
             <td><%= job_application.status %></td>
             <td>
-              <%= link_to fa_icon("eye", text: ""), headhunters_admin_job_path(job_application.job), class: "btn btn-primary", name: "edit-job" %>
+              <%= link_to fa_icon("eye", text: ""), headhunters_admin_profile_path(job_application.job), class: "btn btn-primary", name: "view-profile" %>
               <%= link_to fa_icon("check", text: ""), edit_headhunters_admin_job_path(job_application.job), class: "btn btn-success", name: "edit-job" %>
               <%= link_to fa_icon("times", text: ""), headhunters_admin_job_inactive_path(job_id: job_application.job.id), class: "btn btn-danger", method: "post", :data => {:confirm => 'Tem certeza?'} %>
             </td>
