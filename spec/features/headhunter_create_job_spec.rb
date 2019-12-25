@@ -16,7 +16,7 @@ feature 'Headhunter create job' do
     fill_in 'Salário', with: 4.000
     fill_in 'Data limite', with: '23/01/2020'
     fill_in 'Local de trabalho', with: 'Remoto'
-    choose 'Júnior'
+    choose 'junior'
 
     click_button 'Salvar'
 

@@ -1,11 +1,16 @@
 class JobApplicationsController < ApplicationController
-  before_action :set_job
+  before_action :set_job, only: [:show, :edit, :update]
+
+  def index
+    @job_applications = JobApplication.all
+  end
 
   def new
     @job_application = JobApplication.new
   end
 
   def create
+    @job = Job.find(params[:job_id])
     @job_application = JobApplication.new
 
     @job_application.job = @job
@@ -16,13 +21,17 @@ class JobApplicationsController < ApplicationController
       redirect_to job_path(@job)
     else
       flash.now[:alert] = 'Ocorreu um erro'
-      render :new
+      redirect_to job_path(@job)
     end
+  end
+
+  def show
+    @job_application = JobApplication.new
   end
 
   private
 
     def set_job
-      @job = Job.find(params[:job_id])
+      @job = JobApplication.find(params[:id])
     end
 end

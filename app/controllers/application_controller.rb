@@ -9,8 +9,14 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     stored_location_for(resource) ||
-      if resource.is_a?(Candidate) && resource.present?
-        root_path
+      if resource.present? && resource.is_a?(Candidate)
+        if current_candidate.profile.pending?
+          new_candidates_profile_path
+        else
+          root_path
+        end
+      elsif resource.present? && resource.is_a?(Headhunter)
+        headhunters_admin_jobs_path
       else
         super
       end

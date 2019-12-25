@@ -4,6 +4,8 @@ class Candidate < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :name, :email, presence: true
+
   has_one :profile
   has_many :job_applications
 

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :jobs do
         post :inactive
+
+        resources :job_applications
       end
     end
   end

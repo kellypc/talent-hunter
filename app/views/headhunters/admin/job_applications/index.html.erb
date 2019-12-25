@@ -1,0 +1,40 @@
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-5 px-4">
+  <%= render 'layouts/messages' %>
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">Candidatos para a vaga: <%= @job.title %></h1>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Título da vaga</th>
+        <th>Nível</th>
+        <th>Candidato</th>
+        <th>Data de Inscrição</th>
+        <th>Situação</th>
+        <th>Ações</th>
+      </tr>
+      </thead>
+      <tbody>
+        <% @job_applications.each do |job_application| %>
+          <tr>
+            <td><%= job_application.id %></td>
+            <td><%= job_application.job.title %></td>
+            <td><%= job_application.job.job_level %></td>
+            <td><%= job_application.candidate.name %></td>
+            <td><%= job_application.created_at %></td>
+            <td><%= job_application.status %></td>
+            <td>
+              <%= link_to fa_icon("eye", text: ""), headhunters_admin_job_path(job_application.job), class: "btn btn-primary", name: "edit-job" %>
+              <%= link_to fa_icon("check", text: ""), edit_headhunters_admin_job_path(job_application.job), class: "btn btn-success", name: "edit-job" %>
+              <%= link_to fa_icon("times", text: ""), headhunters_admin_job_inactive_path(job_id: job_application.job.id), class: "btn btn-danger", method: "post", :data => {:confirm => 'Tem certeza?'} %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</main>

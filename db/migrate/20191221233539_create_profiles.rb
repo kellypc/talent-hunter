@@ -11,6 +11,7 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
       t.text :description
       t.string :skills
       t.text :experience
+      t.integer :status, default: 0
       t.references :candidate, foreign_key: true
 
       t.timestamps

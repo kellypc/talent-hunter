@@ -5,7 +5,7 @@ class Job < ApplicationRecord
   belongs_to :headhunter
 
   has_many :job_applications
-
+  
   enum job_levels: { estagiario: 0, junior: 5, pleno: 10, senior: 15, especialista: 20, diretor: 25 }
 
   enum status: { ativo: 0, inativo: 1 }

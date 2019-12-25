@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2019_12_23_015852) do
   end
 
   create_table "job_applications", force: :cascade do |t|
+    t.integer "status", default: 0
     t.integer "job_id"
     t.integer "candidate_id"
     t.datetime "created_at", null: false
@@ -95,6 +96,7 @@ ActiveRecord::Schema.define(version: 2019_12_23_015852) do
     t.text "description"
     t.string "skills"
     t.text "experience"
+    t.integer "status", default: 0
     t.integer "candidate_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
