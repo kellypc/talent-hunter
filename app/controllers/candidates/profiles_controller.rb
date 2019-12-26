@@ -2,7 +2,7 @@ class Candidates::ProfilesController < ApplicationController
   before_action :authenticate_candidate!
 
   def new
-    if current_candidate && current_candidate.profile.completed?
+    if current_candidate && current_candidate.profile&.completed?
       redirect_to candidates_profile_path(current_candidate)
     end
 

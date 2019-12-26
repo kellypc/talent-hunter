@@ -9,6 +9,10 @@ feature 'Headhunter view candidate profile' do
                       local_job: 'Remoto', headhunter: headhunter)
     candidate = Candidate.create!(name: 'Kelly', email: 'kelly@teste.com',
                                   password: '123456')
+    profile = Profile.create(full_name: candidate.name ,social_name: "Kelly Cruz", title: "Desenvolvedor Full-Stack",
+      address: "Rua Teste, 001", phone_number: "(11) 98272-2911", bith_date: "26/07/1990",
+      academic_formation: "Superior Completo", description: "Algo legal aqui", skills: "Ruby, Rails",
+      candidate_id: candidate.id)
 
     job_application = JobApplication.create!(job: job, job: job,
                                             candidate: candidate, created_at: 2019-12-25 )
@@ -22,7 +26,6 @@ feature 'Headhunter view candidate profile' do
     click_on 'Ver candidatos'
     find('[name=view-profile]').click
 
-
-    expect(page).to have_content('Perfil do candidato')
+    expect(page).to have_content('Perfil do Candidato')
   end
 end
