@@ -1,10 +1,12 @@
-<section class="jumbotron text-center">
+<section class="jumbotron text-center col-md-12">
   <div class="container">
     <h1 class="jumbotron-heading">Bem-vindo ao Talent Hunter</h1>
     <p class="lead text-muted">Encontre o emprego dos seus sonhos</p>
-    <p>
-      <%= link_to 'Cadastre-se como headhunter', new_headhunter_registration_path, class:"btn btn-primary my-2" %>
-      <%= link_to 'Cadastre-se como profissional', new_candidate_registration_path, class:"btn btn-primary my-2" %>
-    </p>
+    <% if current_candidate.nil? && current_headhunter.nil? %>
+      <p>
+        <%= link_to 'Cadastre-se como headhunter', new_headhunter_registration_path, class:"btn btn-primary my-2" %>
+        <%= link_to 'Cadastre-se como profissional', new_candidate_registration_path, class:"btn btn-primary my-2" %>
+      </p>
+    <% end %>
   </div>
 </section>
