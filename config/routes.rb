@@ -14,7 +14,9 @@ Rails.application.routes.draw do
       resources :jobs do
         post :inactive
 
-        resources :job_applications
+        resources :job_applications do
+          post :highlight
+        end
       end
 
       resources :profiles

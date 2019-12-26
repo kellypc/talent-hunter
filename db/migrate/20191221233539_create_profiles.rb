@@ -6,7 +6,7 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :address
       t.integer :phone_number
-      t.date :bith_date
+      t.date :birth_date
       t.string :academic_formation
       t.text :description
       t.string :skills

@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_12_23_015852) do
 
   create_table "job_applications", force: :cascade do |t|
     t.integer "status", default: 0
+    t.boolean "highlight", default: false
     t.integer "job_id"
     t.integer "candidate_id"
     t.datetime "created_at", null: false
@@ -91,7 +92,7 @@ ActiveRecord::Schema.define(version: 2019_12_23_015852) do
     t.string "title"
     t.string "address"
     t.integer "phone_number"
-    t.date "bith_date"
+    t.date "birth_date"
     t.string "academic_formation"
     t.text "description"
     t.string "skills"

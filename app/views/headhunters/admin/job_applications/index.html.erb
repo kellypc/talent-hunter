@@ -23,11 +23,17 @@
             <td><%= job_application.id %></td>
             <td><%= job_application.job.title %></td>
             <td><%= Job.job_levels.key(job_application.job.job_level).capitalize %></td>
-            <td><%= job_application.candidate.name %></td>
+            <td>
+              <%= job_application.candidate.name %>
+              <% if job_application.highlight %>
+                <span class="badge badge-warning">destaque</span>
+              <% end %>
+            </td>
             <td><%= job_application.created_at.strftime('%d/%m/%Y') %></td>
             <td><%= job_application.job.status %></td>
             <td>
               <%= link_to fa_icon("eye", text: ""), headhunters_admin_profile_path(job_application.job), class: "btn btn-primary", name: "view-profile" %>
+              <%= link_to fa_icon("star", text: ""), headhunters_admin_job_job_application_highlight_path(job_id: job_application.job.id, job_application_id: job_application.id), class: "btn btn-warning", name: "star-profile", method: :post %>
               <%= link_to fa_icon("check", text: ""), edit_headhunters_admin_job_path(job_application.job), class: "btn btn-success", name: "edit-job" %>
               <%= link_to fa_icon("times", text: ""), headhunters_admin_job_inactive_path(job_id: job_application.job.id), class: "btn btn-danger", method: "post", :data => {:confirm => 'Tem certeza?'} %>
             </td>
