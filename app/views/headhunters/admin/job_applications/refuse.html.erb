@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+  <%= form_for(JobApplication.new, url: headhunters_admin_job_job_application_refuse_path(job_id: @job_application.job.id, job_application_id: @job_application.id), html: { method: :post }) do |f| %>
+    <div class="form-group mt-4">
+      <%= f.label :refuse_reason, "Deixe um Feedback para o Candidato" %><br />
+      <%= f.text_area :refuse_reason, class: "form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Enviar", class: "btn btn-primary" %>
+      <%= link_to "Cancelar", headhunters_admin_job_job_applications_path(job_id: @job_application.job.id), class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+</div>

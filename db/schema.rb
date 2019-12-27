@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2019_12_23_015852) do
   create_table "job_applications", force: :cascade do |t|
     t.integer "status", default: 0
     t.boolean "highlight", default: false
+    t.text "refuse_reason"
     t.integer "job_id"
     t.integer "candidate_id"
     t.datetime "created_at", null: false

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
         resources :job_applications do
           post :highlight
           post :refuse
+          get :refuse
         end
       end
 

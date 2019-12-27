@@ -34,7 +34,7 @@
             <td>
               <%= link_to fa_icon("eye", text: ""), headhunters_admin_profile_path(job_application.job), class: "btn btn-primary", name: "view-profile" %>
               <%= link_to fa_icon("star", text: ""), headhunters_admin_job_job_application_highlight_path(job_id: job_application.job.id, job_application_id: job_application.id), class: "btn btn-warning", name: "star-profile", method: :post %>
-              <%= link_to fa_icon("times", text: ""), headhunters_admin_job_job_application_refuse_path(job_id: job_application.job.id, job_application_id: job_application.id), class: "btn btn-danger", name: "refuse", method: :post, :data => {:confirm => 'Confirma a recusa desse candidato?'} %>
+              <%= link_to fa_icon("times", text: ""), headhunters_admin_job_job_application_refuse_path(job_id: job_application.job.id, job_application_id: job_application.id), class: "btn btn-danger", name: "refuse" %>
             </td>
           </tr>
         <% end %>

@@ -15,8 +15,10 @@ class Headhunters::Admin::JobApplicationsController < ApplicationController
   end
 
   def refuse
-    @job_application.update_attribute(:status, 1)
-    redirect_to headhunters_admin_job_job_applications_path(@job_application.job.id)
+    if request.post?
+      @job_application.update_attribute(:status, 1)
+      redirect_to headhunters_admin_job_job_applications_path(@job_application.job.id)
+    end
   end
 
   private
