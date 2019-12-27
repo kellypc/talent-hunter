@@ -1,3 +1,10 @@
+<div class="container">
+  <%= form_with url: search_path, local: true, method: :get, class: 'form-inline' do %>
+    <%= label_tag :q, 'Título da vaga' %>
+    <%= text_field_tag :q, "", class: "form-control col-md-6 m-3" %>
+    <%= submit_tag 'Buscar vagas', class: 'btn btn-primary' %>
+  <% end %>
+</div>
 <main role="main" class="col-md-12">
   <div class="album py-5 bg-light">
     <div class="container">

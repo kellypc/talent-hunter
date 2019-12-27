@@ -14,8 +14,8 @@ feature 'Headhunter view candidate profile' do
       academic_formation: "Superior Completo", description: "Algo legal aqui", skills: "Ruby, Rails",
       candidate_id: candidate.id)
 
-    job_application = JobApplication.create!(job: job, job: job,
-                                            candidate: candidate, created_at: 2019-12-25 )
+    job_application = JobApplication.create!(job: job, candidate: candidate,
+                                             created_at: 2019-12-25 )
 
     login_as(headhunter, scope: :headhunter)
 
