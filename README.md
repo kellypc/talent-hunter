@@ -12,18 +12,19 @@ O sistema oferece uma infinidade de vagas de emprego para profissionais da área
 
 ## Instalação
 
-1. Clone the project.
+1. Clone o projeto.
 
 	~~~ sh
 	$ git@github.com:kellypc/talent-hunter.git
 	~~~
 
-2. Bundle the Gems.
+2. Installe as Gems.
 
 	~~~ sh
 	$ bundle install
 	~~~
-3. Start the application
+
+3. Inicie a aplicação
 
 	~~~ sh
 	$ rails s
@@ -57,4 +58,4 @@ O projeto foi construído com TDD (Test Driven Development). Para executar os te
 	$ bundle exec rspec
 	~~~
 
-Para ver a porcentagem de cobertura dos testes, abra o arquivo `coverage/index.html` at your browser.
+Para ver a porcentagem de cobertura dos testes, abra o arquivo `coverage/index.html` no seu navegador.
