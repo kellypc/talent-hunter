@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Job.delete_all
+Profile.delete_all
 Headhunter.delete_all
 Candidate.delete_all
 
@@ -17,11 +18,18 @@ headhunter = Headhunter.create!(
   password_confirmation: "123456"
 )
 
-Candidate.create!(
+candidate = Candidate.create!(
   name: "Candidate Tallent",
   email: "candidate@tallent.com",
   password: "123456",
   password_confirmation: "123456")
+
+Profile.create!(full_name: candidate.name ,social_name: "Kelly Cruz",
+                        title: "Desenvolvedor Full-Stack",
+                        address: "Rua Teste, 001", phone_number: "(11) 98272-2911",
+                        birth_date: "26/07/1990", academic_formation: "Superior Completo",
+                        description: "Algo legal aqui", skills: "Ruby, Rails",
+                        candidate_id: candidate.id)
 
 10.times.each do |index|
   Job.create!(

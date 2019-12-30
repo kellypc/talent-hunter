@@ -2,11 +2,15 @@
 
 class Headhunters::Admin::JobApplicationsController < ApplicationController
   before_action :authenticate_headhunter!
-  before_action :set_job_application, except: :index
+  before_action :set_job_application, except: [:index, :show]
 
   def index
     @job = Job.find(params[:job_id])
     @job_applications = @job.job_applications
+  end
+
+  def show
+    @job_application = JobApplication.find(params[:id])
   end
 
   def highlight

@@ -10,6 +10,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def create
+    @comment = Comment.new
     @job = Job.find(params[:job_id])
     @job_application = JobApplication.new
 
