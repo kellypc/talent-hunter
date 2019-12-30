@@ -1,0 +1,39 @@
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+  <h2>Enviar proposta para o candidato</h2>
+
+  <% if @job_proposal.errors.any? %>
+    <p>Você deve corrigir os seguintes erros para continuar</p>
+    <ul>
+      <% @job_proposal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_for [:headhunters, :admin, @job_proposal], url: headhunters_admin_job_job_application_job_proposals_path(job_id: @job_application.job.id, job_application_id: @job_application.id) do |f| %>
+    <div class="form-group mt-4">
+      <%= f.label :company_name, "Nome da Empresa" %><br />
+      <%= f.text_field :company_name, class: "form-control col-md-6" %>
+    </div>
+
+    <div class="form-group mt-4">
+      <%= f.label :salary, "Salário Oferecido" %><br />
+      <%= f.text_field :salary, class: "form-control col-md-6", rows: 7 %>
+    </div>
+
+    <div class="form-group mt-4">
+      <%= f.label :init_date, "Data de início" %><br />
+      <%= f.text_field :init_date, class: "form-control col-md-6" %>
+    </div>
+
+    <div class="form-group mt-4">
+      <%= f.label :benefits, "Benefícios" %><br />
+      <%= f.text_area :benefits, class: "form-control col-md-6", rows: 7 %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Salvar", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+</main>
