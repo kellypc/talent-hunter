@@ -12,7 +12,7 @@ feature 'Headhunter view candidate profile' do
     profile = Profile.create(full_name: candidate.name ,social_name: "Kelly Cruz", title: "Desenvolvedor Full-Stack",
       address: "Rua Teste, 001", phone_number: "(11) 98272-2911", birth_date: "26/07/1990",
       academic_formation: "Superior Completo", description: "Algo legal aqui", skills: "Ruby, Rails",
-      candidate_id: candidate.id)
+      candidate_id: candidate.id, experience: "Campus Code - 2019", status: "completed")
 
     job_application = JobApplication.create!(job: job, candidate: candidate,
                                              created_at: 2019-12-25 )

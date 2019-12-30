@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Comment.delete_all
+JobProposal.delete_all
+JobApplication.delete_all
 Job.delete_all
 Profile.delete_all
 Headhunter.delete_all
@@ -29,7 +32,7 @@ Profile.create!(full_name: candidate.name ,social_name: "Kelly Cruz",
                         address: "Rua Teste, 001", phone_number: "(11) 98272-2911",
                         birth_date: "26/07/1990", academic_formation: "Superior Completo",
                         description: "Algo legal aqui", skills: "Ruby, Rails",
-                        candidate_id: candidate.id)
+                        candidate_id: candidate.id, experience: "Campus Code - 2019", status: "completed")
 
 10.times.each do |index|
   Job.create!(

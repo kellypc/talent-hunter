@@ -17,7 +17,7 @@ class Headhunters::Admin::CommentsController < ApplicationController
       redirect_to headhunters_admin_profile_path(@profile)
     else
       flash.now[:alert] = 'Você deve preencher todos os campos'
-      render :new
+      redirect_to headhunters_admin_profile_path(@profile)
     end
   end
 

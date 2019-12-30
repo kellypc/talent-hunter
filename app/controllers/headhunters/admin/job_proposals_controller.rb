@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 class Headhunters::Admin::JobProposalsController < ApplicationController
-  before_action :authenticate_headhunter!
-  before_action :set_job_application, except: [:index, :show]
+  before_action :set_job_application, except: [:index]
+
+  def index
+    @job_proposal = JobProposal.all
+  end
 
   def new
     @job_proposal = JobProposal.new
@@ -17,6 +20,10 @@ class Headhunters::Admin::JobProposalsController < ApplicationController
       flash.now[:alert] = 'Você deve preencher todos os campos'
       render :new
     end
+  end
+
+  def show
+    @job_proposal = JobProposal.find(params[:id])
   end
 
   private

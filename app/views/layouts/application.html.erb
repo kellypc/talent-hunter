@@ -14,7 +14,8 @@
     <div class="">
       <div class="container-fluid wrapper">
         <div class="row">
-          <%= render 'headhunters/admin/sidebar' if current_headhunter %>
+          <%= render 'headhunters/admin/sidebar' if current_headhunter && is_admin_path %>
+          <%= render 'candidates/admin/sidebar' if current_candidate && is_admin_path %>
           <%= yield %>
         </div>
       </div>

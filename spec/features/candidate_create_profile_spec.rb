@@ -13,8 +13,12 @@ feature 'Candidate create profile' do
 
     fill_in 'Nome completo', with: 'Kelly Teste'
     fill_in 'Nome social', with: 'Kelly Cruz'
-    fill_in 'Data de nascimento', with: '23/04/2000'
+    fill_in 'Título', with: 'Desenvolvedor Full-stack'
     fill_in 'Formação acadêmica', with: 'Análise e Desenvolvimento de Sistemas'
+    fill_in 'Endereço', with: 'Rua Teste, São Paulo - SP'
+    fill_in 'Número de telefone', with: '(11) 9277-9866'
+    fill_in 'Data de nascimento', with: '26/07/1985'
+    fill_in 'Habilidades', with: 'Ruby, Rails'
     fill_in 'Descrição', with: 'Testando'
     fill_in 'Experiência', with: 'Testando'
 

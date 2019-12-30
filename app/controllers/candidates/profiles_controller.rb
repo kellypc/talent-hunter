@@ -13,6 +13,7 @@ class Candidates::ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.candidate = current_candidate
     @profile.status = :completed
+
     if @profile.save!
       flash[:notice] = 'Perfil criado com sucesso'
       redirect_to candidates_profile_path(@profile)
@@ -29,7 +30,7 @@ class Candidates::ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:full_name, :social_name, :title, :bith_date,
+    params.require(:profile).permit(:full_name, :social_name, :title, :birth_date,
                                      :academic_formation, :description, :experience,
                                      :address, :phone_number, :skills, :avatar, :status)
 

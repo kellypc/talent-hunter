@@ -32,7 +32,7 @@
             <td><%= job_application.created_at.strftime('%d/%m/%Y') %></td>
             <td><%= JobApplication.statuses.key(job_application.status)&.capitalize %></td>
             <td>
-              <%= link_to fa_icon("eye", text: ""), headhunters_admin_profile_path(job_application.job), class: "btn btn-primary", name: "view-profile", title: "Ver Perfil" %>
+              <%= link_to fa_icon("eye", text: ""), headhunters_admin_profile_path(job_application.candidate.profile), class: "btn btn-primary", name: "view-profile", title: "Ver Perfil" %>
               <%= link_to fa_icon("star", text: ""), headhunters_admin_job_job_application_highlight_path(job_id: job_application.job.id, job_application_id: job_application.id), class: "btn btn-warning", name: "star-profile", method: :post, title: "Marcar como Destaque" %>
               <%= link_to fa_icon("times", text: ""), headhunters_admin_job_job_application_refuse_path(job_id: job_application.job.id, job_application_id: job_application.id), class: "btn btn-danger", name: "refuse", title: "Recusar" %>
               <%= link_to fa_icon("check", text: ""), new_headhunters_admin_job_job_application_job_proposal_path(job_id: job_application.job.id, job_application_id: job_application.id), class: "btn btn-success", name: "send-offer", title: "Enviar proposta" %>

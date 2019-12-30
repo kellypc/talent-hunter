@@ -15,7 +15,7 @@ feature 'Headhunter makes profile comments' do
                             address: "Rua Teste, 001", phone_number: "(11) 98272-2911",
                             birth_date: "26/07/1990", academic_formation: "Superior Completo",
                             description: "Algo legal aqui", skills: "Ruby, Rails",
-                            candidate_id: candidate.id)
+                            candidate_id: candidate.id, experience: "Campus Code - 2019", status: "completed")
 
     job_application = JobApplication.create!(job: job,candidate: candidate,
                                              created_at: 29/12/2019 )

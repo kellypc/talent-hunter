@@ -37,6 +37,7 @@
               <p class="inner-title no-margin"><%= @job_application.refuse_reason %></p>
             </div>
           <% end %>
+          <%= link_to 'Minhas propostas', headhunters_admin_job_job_application_job_proposal_path(:job_application_id, :job_id) %>
         </div>
         <div class="col-lg-4 col-md-12">
           <div class="job-details-section">
