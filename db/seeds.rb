@@ -15,15 +15,15 @@ Headhunter.delete_all
 Candidate.delete_all
 
 headhunter = Headhunter.create!(
-  name: "Tallent Hunter",
-  email: "headhunter@tallent.com",
+  name: "Talent Hunter",
+  email: "headhunter@talent.com",
   password: "123456",
   password_confirmation: "123456"
 )
 
 candidate = Candidate.create!(
-  name: "Candidate Tallent",
-  email: "candidate@tallent.com",
+  name: "Candidate Talent",
+  email: "candidate@talent.com",
   password: "123456",
   password_confirmation: "123456")
 
