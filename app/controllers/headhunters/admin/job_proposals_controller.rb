@@ -13,6 +13,12 @@ class Headhunters::Admin::JobProposalsController < ApplicationController
 
   def create
     @job_proposal = JobProposal.new(job_proposal_params)
+
+    @job_application = JobApplication.find(params[:job_proposal][:job_application_id])
+
+    @job_proposal.job_application = @job_application
+    @job_proposal.headhunter = current_headhunter
+
     if @job_proposal.save
       flash[:notice] = 'proposta enviada com sucesso'
       redirect_to headhunters_admin_jobs_path

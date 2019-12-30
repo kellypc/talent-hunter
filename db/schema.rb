@@ -86,8 +86,12 @@ ActiveRecord::Schema.define(version: 2019_12_30_041631) do
     t.datetime "init_date"
     t.float "salary"
     t.text "benefits"
+    t.integer "headhunter_id"
+    t.integer "job_application_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["headhunter_id"], name: "index_job_proposals_on_headhunter_id"
+    t.index ["job_application_id"], name: "index_job_proposals_on_job_application_id"
   end
 
   create_table "jobs", force: :cascade do |t|

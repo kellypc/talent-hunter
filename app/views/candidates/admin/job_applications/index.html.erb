@@ -25,7 +25,7 @@
             <td><%= job_application.created_at.strftime('%d/%m/%Y') %></td>
             <td><%= JobApplication.statuses.key(job_application.status)&.capitalize %></td>
             <td>
-              <%= link_to fa_icon("eye", text: ""), candidates_admin_job_application_path(job_application.job), class: "btn btn-primary", name: "view-profile", title: "Ver Perfil" %>
+              <%= link_to fa_icon("eye", text: ""), candidates_admin_job_application_path(job_application), class: "btn btn-primary", name: "view-profile", title: "Ver Perfil" %>
             </td>
           </tr>
         <% end %>

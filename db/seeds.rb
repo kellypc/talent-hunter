@@ -47,3 +47,5 @@ Profile.create!(full_name: candidate.name ,social_name: "Kelly Cruz",
     status: :ativo,
     headhunter_id: headhunter.id)
 end
+
+JobApplication.create!(job: Job.first, candidate: candidate)

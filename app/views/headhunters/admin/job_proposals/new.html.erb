@@ -11,6 +11,8 @@
   <% end %>
 
   <%= form_for [:headhunters, :admin, @job_proposal], url: headhunters_admin_job_job_application_job_proposals_path(job_id: @job_application.job.id, job_application_id: @job_application.id) do |f| %>
+    <%= f.hidden_field :job_application_id, value: @job_application.id %>
+
     <div class="form-group mt-4">
       <%= f.label :company_name, "Nome da Empresa" %><br />
       <%= f.text_field :company_name, class: "form-control col-md-6" %>
@@ -32,7 +34,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Salvar", class: "btn btn-primary" %>
+      <%= f.submit "Enviar", class: "btn btn-primary" %>
     </div>
   <% end %>
 

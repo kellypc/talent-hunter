@@ -35,6 +35,7 @@ Rails.application.routes.draw do
 
     namespace :admin do
       resources :job_applications
+      resources :job_proposals
     end
   end
 

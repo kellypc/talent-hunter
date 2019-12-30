@@ -8,6 +8,7 @@ class Candidate < ApplicationRecord
 
   has_one :profile
   has_many :job_applications
+  has_many :job_proposal
 
   def can_apply_to_job?(job_id)
     self.job_applications.where(job_id: job_id).blank?
