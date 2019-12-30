@@ -47,7 +47,7 @@ O sistema oferece uma infinidade de vagas de emprego para profissionais da área
 14. Headhunter recebe resposta do candidato
 15. Headhunter encerra as inscrições para uma vaga
 
-## Testing with RSpec
+## Testes com RSpec
 
 O projeto foi construído com TDD (Test Driven Development). Para executar os testes, basta executar os testes com o RSpec.
 
