@@ -2,8 +2,8 @@
   <section class="page-title-section cover-background">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <h1><%= @job.title %></h1>
+        <div class="col-md-12 text-left">
+          <h1>Proposta para a Vaga: <%= @job_proposal.job_application.job.title %></h1>
         </div>
       </div>
     </div>
@@ -15,29 +15,26 @@
         <div class="col-lg-8 col-md-12">
           <div class="padding-50px-right sm-no-padding-right">
             <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
-              <h3>Descrição</h3>
-              <p class="inner-title no-margin"><%= @job.description %></p>
+              <h3>Empresa</h3>
+              <p class="inner-title no-margin"><%= @job_proposal.company_name %></p>
             </div>
             <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
-              <h4 class="font-size24 md-font-size22 sm-font-size20">Habilidades</h4>
-              <ul class="list-style8">
-                <% @job.skills.split(",").each do |skill| %>
-                  <li><%= skill %></li>
-                <% end %>
-              </ul>
+              <h3>Data de Início</h3>
+              <p class="inner-title no-margin"><%= @job_proposal.init_date %></p>
+            </div>
+            <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
+              <h3>Salário oferecido</h3>
+              <p class="inner-title no-margin"><%= @job_proposal.salary %></p>
+            </div>
+            <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
+              <h3>Benefícios oferecidos</h3>
+              <p class="inner-title no-margin"><%= @job_proposal.benefits %></p>
             </div>
             <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
               <h3>Situação</h3>
-              <p class="inner-title no-margin"><%= JobApplication.statuses.key(@job_application.status)&.capitalize %></p>
+              <p class="inner-title no-margin"><%= JobApplication.statuses.key(@job_proposal.status)&.capitalize %></p>
             </div>
           </div>
-          <% if @job_application.status == 1 %>
-            <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
-              <h3>Motivo da recusa </h3>
-              <p class="inner-title no-margin"><%= @job_application.refuse_reason %></p>
-            </div>
-          <% end %>
-          <%= link_to 'Proposta Recebida', candidates_admin_job_proposal_path(@job_application.job_proposal), class: 'btn btn-success' %>
         </div>
         <div class="col-lg-4 col-md-12">
           <div class="job-details-section">
@@ -46,22 +43,22 @@
               <li>
                 <%= fa_icon("money", text: "") %>
                 <h6>Salário</h6>
-                <p><%= number_to_currency @job.salary %></p>
+                <p><%= number_to_currency @job_proposal.job_application.job.salary %></p>
               </li>
               <li>
                 <%= fa_icon("group", text: "") %>
                 <h6>Nível</h6>
-                <p><%= Job.job_levels.key(@job.job_level).capitalize %></p>
+                <p><%= Job.job_levels.key(@job_proposal.job_application.job.job_level).capitalize %></p>
               </li>
               <li>
                 <%= fa_icon("calendar", text: "") %>
                 <h6>Disponível até</h6>
-                <p><%= @job.end_date.strftime("%d/%m/%Y") %></p>
+                <p><%= @job_proposal.job_application.job.end_date.strftime("%d/%m/%Y") %></p>
               </li>
               <li>
                 <%= fa_icon("map-marker", text: "") %>
                 <h6>Local de Trabalhho</h6>
-                <p><%= @job.local_job %></p>
+                <p><%= @job_proposal.job_application.job.local_job %></p>
               </li>
             </ul>
           </div>

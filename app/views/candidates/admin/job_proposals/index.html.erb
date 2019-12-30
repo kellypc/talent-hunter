@@ -1,0 +1,35 @@
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+  <%= render 'layouts/messages' %>
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">Veja as propostas que você se recebeu</h1>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Título da vaga</th>
+        <th>Empresa</th>
+        <th>Data do Convite</th>
+        <th>Situação</th>
+        <th>Ações</th>
+      </tr>
+      </thead>
+      <tbody>
+        <% @job_proposals.each do |job_proposal| %>
+          <tr>
+            <td><%= job_proposal.id %></td>
+            <td><%= job_proposal.job_application.job.title %></td>
+            <td><%= job_proposal.company_name %></td>
+            <td><%= job_proposal.created_at.strftime('%d/%m/%Y') %></td>
+            <td><%= JobProposal.statuses.key(job_proposal.status)&.capitalize %></td>
+            <td>
+              <%= link_to fa_icon("eye", text: ""), candidates_admin_job_proposal_path(job_proposal), class: "btn btn-primary", name: "view-profile", title: "Ver Perfil" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</main>

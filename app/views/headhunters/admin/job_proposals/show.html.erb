@@ -1,0 +1,26 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="padding-50px-right sm-no-padding-right">
+          <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
+            <h3>Nome da empresa</h3>
+            <p class="inner-title no-margin"><%= @job_proposal.company_name %></p>
+          </div>
+          <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
+            <h3>Data de início</h3>
+            <p class="inner-title no-margin"><%= @job_proposal.init_date.strftime("%d/%m/%Y") %></p>
+          </div>
+          <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
+            <h3>Salário</h3>
+            <p class="inner-title no-margin"><%= @job_proposal.salary %></p>
+          </div>
+          <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
+            <h3>Benefícios</h3>
+            <p class="inner-title no-margin"><%= @job_proposal.benefits %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

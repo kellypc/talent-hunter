@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2019_12_30_041631) do
     t.datetime "init_date"
     t.float "salary"
     t.text "benefits"
+    t.integer "status", default: 0
     t.integer "headhunter_id"
     t.integer "job_application_id"
     t.datetime "created_at", null: false
