@@ -24,7 +24,19 @@ O sistema oferece uma infinidade de vagas de emprego para profissionais da área
 	$ bundle install
 	~~~
 
-3. Inicie a aplicação
+3. Execute as migrações
+
+~~~ sh
+$ rails db:migrate
+~~~
+
+4. Popule o banco com dados (opcional)
+
+	~~~ sh
+	$ rails db:seed
+	~~~
+
+5. Inicie a aplicação
 
 	~~~ sh
 	$ rails s
