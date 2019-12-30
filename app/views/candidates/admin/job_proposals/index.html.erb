@@ -25,7 +25,7 @@
             <td><%= job_proposal.created_at.strftime('%d/%m/%Y') %></td>
             <td><%= JobProposal.statuses.key(job_proposal.status)&.capitalize %></td>
             <td>
-              <%= link_to fa_icon("eye", text: ""), candidates_admin_job_proposal_path(job_proposal), class: "btn btn-primary", name: "view-profile", title: "Ver Perfil" %>
+              <%= link_to fa_icon("eye", text: ""), candidates_admin_job_proposal_path(job_proposal), class: "btn btn-primary", name: "view-proposal", title: "Ver Perfil" %>
             </td>
           </tr>
         <% end %>

@@ -11,6 +11,16 @@ class Candidates::Admin::JobProposalsController < ApplicationController
   def show
   end
 
+  def update
+    if params[:commit] == "Aceitar"
+      @job_proposal.update!(status: 5)
+    elsif params[:commit] == "Recusar"
+      @job_proposal.update!(status: 10)
+    end
+
+    redirect_to candidates_admin_job_proposal_path(@job_proposal)
+  end
+
   private
 
   def set_job_proposals

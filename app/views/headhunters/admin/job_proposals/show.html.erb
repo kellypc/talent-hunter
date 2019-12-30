@@ -1,26 +1,74 @@
-<section>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 col-md-12">
-        <div class="padding-50px-right sm-no-padding-right">
-          <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
-            <h3>Nome da empresa</h3>
-            <p class="inner-title no-margin"><%= @job_proposal.company_name %></p>
+<div id="job-details" class="col-md-10">
+  <section class="page-title-section cover-background">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-left">
+          <h3>Proposta enviada para o candidato: <%= @job_proposal.job_application.candidate.name %></h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-12">
+          <div class="padding-50px-right sm-no-padding-right">
+            <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
+              <h5>Empresa</h5>
+              <p class="inner-title no-margin"><%= @job_proposal.company_name %></p>
+            </div>
+            <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
+              <h5>Data de Início</h5>
+              <p class="inner-title no-margin"><%= @job_proposal.init_date.strftime('%d/%m/%Y') %></p>
+            </div>
+            <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
+              <h5>Salário oferecido</h5>
+              <p class="inner-title no-margin"><%= @job_proposal.salary %></p>
+            </div>
+            <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
+              <h5>Benefícios oferecidos</h5>
+              <p class="inner-title no-margin"><%= @job_proposal.benefits %></p>
+            </div>
+            <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
+              <h5>Situação</h5>
+              <span class="badge badge-warning"><%= JobProposal.statuses.key(@job_proposal.status.to_i)&.capitalize %></span>
+            </div>
+            <% if @job_proposal.status == 5 %>
+              <div class="actions mt-4">
+                <%= link_to 'Convidar para entrevista', root_path, class: 'btn btn-success'%>
+              </div>
+            <% end %>
           </div>
-          <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
-            <h3>Data de início</h3>
-            <p class="inner-title no-margin"><%= @job_proposal.init_date.strftime("%d/%m/%Y") %></p>
-          </div>
-          <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
-            <h3>Salário</h3>
-            <p class="inner-title no-margin"><%= @job_proposal.salary %></p>
-          </div>
-          <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
-            <h3>Benefícios</h3>
-            <p class="inner-title no-margin"><%= @job_proposal.benefits %></p>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="job-details-section">
+            <h4>Sobre a vaga</h4>
+            <ul class="list-style-icon">
+              <li>
+                <%= fa_icon("money", text: "") %>
+                <h6>Salário</h6>
+                <p><%= number_to_currency @job_proposal.job_application.job.salary %></p>
+              </li>
+              <li>
+                <%= fa_icon("group", text: "") %>
+                <h6>Nível</h6>
+                <p><%= Job.job_levels.key(@job_proposal.job_application.job.job_level).capitalize %></p>
+              </li>
+              <li>
+                <%= fa_icon("calendar", text: "") %>
+                <h6>Disponível até</h6>
+                <p><%= @job_proposal.job_application.job.end_date.strftime("%d/%m/%Y") %></p>
+              </li>
+              <li>
+                <%= fa_icon("map-marker", text: "") %>
+                <h6>Local de Trabalhho</h6>
+                <p><%= @job_proposal.job_application.job.local_job %></p>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>

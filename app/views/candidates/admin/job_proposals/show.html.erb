@@ -32,8 +32,16 @@
             </div>
             <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
               <h3>Situação</h3>
-              <p class="inner-title no-margin"><%= JobApplication.statuses.key(@job_proposal.status)&.capitalize %></p>
+              <span class="badge badge-warning"><%= JobProposal.statuses.key(@job_proposal.status.to_i)&.capitalize %></span>
             </div>
+            <% if @job_proposal.status == 0 %>
+              <div class="actions mt-3">
+                <%= form_for @job_proposal, url: candidates_admin_job_proposal_path(@job_proposal.id, html: { method: :put, class: 'col-md-6' }) do |f| %>
+                  <%= f.submit 'Aceitar', class: 'btn btn-success'%>
+                  <%= f.submit 'Recusar', class: 'btn btn-danger' %>
+                <% end %>
+              </div>
+            <% end %>
           </div>
         </div>
         <div class="col-lg-4 col-md-12">

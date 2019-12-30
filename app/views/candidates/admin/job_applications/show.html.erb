@@ -37,7 +37,10 @@
               <p class="inner-title no-margin"><%= @job_application.refuse_reason %></p>
             </div>
           <% end %>
-          <%= link_to 'Proposta Recebida', candidates_admin_job_proposal_path(@job_application.job_proposal), class: 'btn btn-success' %>
+
+          <% if @job_application.job_proposal.present? %>
+            <%= link_to 'Proposta Recebida', candidates_admin_job_proposal_path(@job_application.job_proposal), class: 'btn btn-success' %>
+          <% end %>
         </div>
         <div class="col-lg-4 col-md-12">
           <div class="job-details-section">

@@ -25,7 +25,12 @@ feature 'Candidate view proposal' do
     click_link 'Admin'
     click_link 'Minhas Propostas'
 
-    expect(page).to have_content('Veja as propostas que você se recebeu')
-    expect(page).to have_content(job.title)
+    find('[name=view-proposal]').click
+
+    # save_and_open_page
+
+    click_button 'Aceitar'
+
+    expect(page).to have_content("Aceito")
   end
 end
