@@ -28,6 +28,10 @@ Rails.application.routes.draw do
 
   namespace :candidates do
     resources :profiles
+
+    namespace :admin do
+      resources :job_applications
+    end
   end
 
   resources :jobs do

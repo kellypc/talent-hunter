@@ -1,0 +1,71 @@
+<div id="job-details">
+  <section class="page-title-section cover-background">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1><%= @job.title %></h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-12">
+          <div class="padding-50px-right sm-no-padding-right">
+            <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
+              <h3>Descrição</h3>
+              <p class="inner-title no-margin"><%= @job.description %></p>
+            </div>
+            <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
+              <h4 class="font-size24 md-font-size22 sm-font-size20">Habilidades</h4>
+              <ul class="list-style8">
+                <% @job.skills.split(",").each do |skill| %>
+                  <li><%= skill %></li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
+              <h3>Situação</h3>
+              <p class="inner-title no-margin"><%= JobApplication.statuses.key(@job_application.status)&.capitalize %></p>
+            </div>
+          </div>
+          <% if @job_application.status == 1 %>
+            <div class="margin-50px-bottom sm-margin-40px-bottom xs-margin-35px-bottom">
+              <h3>Motivo da recusa </h3>
+              <p class="inner-title no-margin"><%= @job_application.refuse_reason %></p>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="job-details-section">
+            <h4>Sobre a vaga</h4>
+            <ul class="list-style-icon">
+              <li>
+                <%= fa_icon("money", text: "") %>
+                <h6>Salário</h6>
+                <p><%= number_to_currency @job.salary %></p>
+              </li>
+              <li>
+                <%= fa_icon("group", text: "") %>
+                <h6>Nível</h6>
+                <p><%= Job.job_levels.key(@job.job_level).capitalize %></p>
+              </li>
+              <li>
+                <%= fa_icon("calendar", text: "") %>
+                <h6>Disponível até</h6>
+                <p><%= @job.end_date.strftime("%d/%m/%Y") %></p>
+              </li>
+              <li>
+                <%= fa_icon("map-marker", text: "") %>
+                <h6>Local de Trabalhho</h6>
+                <p><%= @job.local_job %></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

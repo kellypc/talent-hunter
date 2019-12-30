@@ -1,7 +1,7 @@
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-5 px-4">
   <%= render 'layouts/messages' %>
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-    <h1 class="h2">Candidatos para a vaga: <%= @job.title %></h1>
+    <h1 class="h2">Veja as vagas que você se candidatou</h1>
   </div>
 
   <div class="table-responsive">
@@ -11,7 +11,6 @@
         <th>#</th>
         <th>Título da vaga</th>
         <th>Nível</th>
-        <th>Candidato</th>
         <th>Data de Inscrição</th>
         <th>Situação</th>
         <th>Ações</th>
@@ -23,18 +22,10 @@
             <td><%= job_application.id %></td>
             <td><%= job_application.job.title %></td>
             <td><%= Job.job_levels.key(job_application.job.job_level).capitalize %></td>
-            <td>
-              <%= job_application.candidate.name %>
-              <% if job_application.highlight %>
-                <span class="badge badge-warning">destaque</span>
-              <% end %>
-            </td>
             <td><%= job_application.created_at.strftime('%d/%m/%Y') %></td>
             <td><%= JobApplication.statuses.key(job_application.status)&.capitalize %></td>
             <td>
-              <%= link_to fa_icon("eye", text: ""), headhunters_admin_profile_path(job_application.job), class: "btn btn-primary", name: "view-profile", title: "Ver Perfil" %>
-              <%= link_to fa_icon("star", text: ""), headhunters_admin_job_job_application_highlight_path(job_id: job_application.job.id, job_application_id: job_application.id), class: "btn btn-warning", name: "star-profile", method: :post, title: "Marcar como Destaque" %>
-              <%= link_to fa_icon("times", text: ""), headhunters_admin_job_job_application_refuse_path(job_id: job_application.job.id, job_application_id: job_application.id), class: "btn btn-danger", name: "refuse", title: "Recusar" %>
+              <%= link_to fa_icon("eye", text: ""), candidates_admin_job_application_path(job_application.job), class: "btn btn-primary", name: "view-profile", title: "Ver Perfil" %>
             </td>
           </tr>
         <% end %>

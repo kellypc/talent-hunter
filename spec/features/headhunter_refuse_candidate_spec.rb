@@ -28,6 +28,6 @@ feature 'Headhunter refuse candidate application' do
     click_on 'Ver candidatos'
     find('[name=refuse]').click
 
-    expect(page).to have_content('Recusado')
+    expect(page).to have_content('Deixe um Feedback para o Candidato')
   end
 end
