@@ -38,7 +38,7 @@
             <td>
               <%= link_to fa_icon("eye", text: ""), headhunters_admin_job_path(job), class: "btn btn-primary", name: "view-job" %>
               <%= link_to fa_icon("pencil", text: ""), edit_headhunters_admin_job_path(job), class: "btn btn-primary", name: "edit-job" %>
-              <%= link_to fa_icon("times", text: ""), headhunters_admin_job_inactive_path(job_id: job.id), class: "btn btn-danger", method: "post", :data => {:confirm => 'Tem certeza?'} %>
+              <%= link_to fa_icon("times", text: ""), headhunters_admin_job_inactive_path(job_id: job.id), name: "inative-job", class: "btn btn-danger", method: "post", :data => {:confirm => 'Tem certeza?'} %>
             </td>
           </tr>
         <% end %>

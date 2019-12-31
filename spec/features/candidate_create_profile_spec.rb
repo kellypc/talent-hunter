@@ -21,7 +21,7 @@ feature 'Candidate create profile' do
     fill_in 'Habilidades', with: 'Ruby, Rails'
     fill_in 'Descrição', with: 'Testando'
     fill_in 'Experiência', with: 'Testando'
-
+    attach_file 'Image', Rails.root.join('spec', 'support', 'user-avatar.jpg')
     click_on 'Salvar'
 
     expect(page).to have_content('Kelly Teste')
