@@ -5,6 +5,7 @@ class Headhunter < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, :email, presence: true
+  validates :name, uniqueness: { message: 'Nome já está em uso'}
 
   has_many :jobs
 end
