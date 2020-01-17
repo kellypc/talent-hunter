@@ -1,6 +1,6 @@
 class Job < ApplicationRecord
   validates :title, :description, :skills, :salary, :job_level, presence: true
-  validates :start_date, :local_job, presence: true
+  validates :start_date, :end_date, :local_job, presence: true
 
   belongs_to :headhunter
 

@@ -17,7 +17,7 @@ feature 'Headhunter highlight profile' do
                             candidate_id: candidate.id, experience: "Campus Code - 2019", status: "completed")
 
     job_application = JobApplication.create!(job: job,candidate: candidate,
-                                             created_at: 2019-12-25 )
+                                             created_at: 25/12/2019 )
 
     login_as(headhunter, scope: :headhunter)
 

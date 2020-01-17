@@ -17,8 +17,9 @@
       <%= f.text_field :title, class: "form-control col-md-6" %>
     </div>
     <div class="form-group mt-4"">
-      <%= f.label :phone_number, "Número de telefone" %><br />
-      <%= f.text_field :phone_number, class: "form-control col-md-6" %>
+      <%= f.label :phone_number, "Telefone" %><br />
+      <%= f.text_field :phone_number, class: "form-control col-md-6",
+          data: { mask: '(99) 9 9999-9999' } %>
     </div>
     <div class="form-group mt-4"">
       <%= f.label :address, "Endereço" %><br />
