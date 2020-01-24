@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :candidates, path: 'candidates', controllers: {
     registrations: "candidates/devise/registrations",
     sessions: "candidates/devise/sessions"
@@ -12,30 +11,30 @@ Rails.application.routes.draw do
 
   namespace :headhunters do
     namespace :admin do
-      resources :jobs do
+      resources :jobs, except: [:destroy] do
         post :inactive
 
-        resources :job_applications do
+        resources :job_applications, only: %i[index show] do
           post :highlight
           post :refuse
           get :refuse
 
-          resources :job_proposals
+          resources :job_proposals, only: %i[index new create show]
         end
       end
 
-      resources :profiles do
-        resources :comments
+      resources :profiles, only: %i[show] do
+        resources :comments, only: %i[new create]
       end
     end
   end
 
   namespace :candidates do
-    resources :profiles
+    resources :profiles, only: %i[show new create]
 
     namespace :admin do
-      resources :job_applications
-      resources :job_proposals
+      resources :job_applications, only: %i[index show]
+      resources :job_proposals, only: %i[index show update]
     end
   end
 
