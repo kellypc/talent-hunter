@@ -42,6 +42,12 @@ Rails.application.routes.draw do
     resources :job_applications
   end
 
+  namespace :api, defaults: { format: 'json' } do
+    namespace :v1 do
+      resources :job_applications, only: %i[show]
+    end
+  end
+
   root 'home#index'
   get 'search', to: "home#search"
 end
