@@ -75,5 +75,28 @@ describe 'job_applications management' do
         expect(json[:candidate_id]).to eq(candidate.id)
       end
     end
+
+    context 'delete' do
+    it 'delete correctly' do
+      candidate = Candidate.create!(name: 'Kelly', email: 'kelly@teste.com',
+                                    password: '123456')
+
+      headhunter = Headhunter.create!(name: 'Teste', email: 'test@test.com', password: '123456')
+
+      job = Job.create!(title: 'Desenvolvedora', description: 'testando',
+                        skills: 'testando', salary: 3.000, job_level: 'Junior',
+                        start_date: '23/01/2012', end_date: '23/02/2020',
+                        local_job: 'Remoto', headhunter: headhunter)
+
+      job_application = JobApplication.create!(job: job, candidate: candidate,
+                                               created_at: 29/12/2019 )
+
+      delete api_v1_job_application_path(job_application)
+      json = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to have_http_status(200)
+      expect(json[:message]).to include('Job application excluído com sucesso')
+    end
+  end
   end
 end

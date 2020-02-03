@@ -20,4 +20,10 @@ class Api::V1::JobApplicationsController < Api::V1::ApiController
         end
     end
   end
+
+  def destroy
+    @job_application = JobApplication.find(params[:id])
+    @job_application.destroy
+    render json: {"message": "Job application excluído com sucesso"}
+  end
 end
