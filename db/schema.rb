@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_30_041631) do
+ActiveRecord::Schema.define(version: 2020_02_07_171450) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -127,6 +127,17 @@ ActiveRecord::Schema.define(version: 2019_12_30_041631) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["candidate_id"], name: "index_profiles_on_candidate_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "name"
+    t.text "body"
+    t.integer "product_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_reviews_on_product_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
 end

@@ -6,7 +6,8 @@ describe 'job_applications management' do
       candidate = Candidate.create!(name: 'Kelly', email: 'kelly@teste.com',
                                     password: '123456')
 
-      headhunter = Headhunter.create!(name: 'Teste', email: 'test@test.com', password: '123456')
+      headhunter = Headhunter.create!(name: 'Teste', email: 'test@test.com',
+                                      password: '123456')
 
       job = Job.create!(title: 'Desenvolvedora', description: 'testando',
                         skills: 'testando', salary: 3.000, job_level: 'Junior',
@@ -34,12 +35,13 @@ describe 'job_applications management' do
         candidate = Candidate.create!(name: 'Kelly', email: 'kelly@teste.com',
                                       password: '123456')
 
-        headhunter = Headhunter.create!(name: 'Teste', email: 'test@test.com', password: '123456')
+        headhunter = Headhunter.create!(name: 'Teste', email: 'test@test.com',
+                                        password: '123456')
 
         job = Job.create!(title: 'Desenvolvedora', description: 'testando',
-                          skills: 'testando', salary: 3.000, job_level: 'Junior',
-                          start_date: '23/01/2012', end_date: '23/02/2020',
-                          local_job: 'Remoto', headhunter: headhunter)
+                        skills: 'testando', salary: 3.000, job_level: 'Junior',
+                        start_date: '23/01/2012', end_date: '23/02/2020',
+                        local_job: 'Remoto', headhunter: headhunter)
          job_application1 = JobApplication.create!(job: job, candidate: candidate,
                                                   created_at: 29/12/2019 )
          job_application2 = JobApplication.create!(job: job, candidate: candidate,
@@ -56,7 +58,8 @@ describe 'job_applications management' do
         candidate = Candidate.create!(name: 'Kelly', email: 'kelly@teste.com',
                                       password: '123456')
 
-        headhunter = Headhunter.create!(name: 'Teste', email: 'test@test.com', password: '123456')
+        headhunter = Headhunter.create!(name: 'Teste', email: 'test@test.com',
+                                        password: '123456')
 
         job = Job.create!(title: 'Desenvolvedora', description: 'testando',
                           skills: 'testando', salary: 3.000, job_level: 'Junior',
@@ -64,7 +67,8 @@ describe 'job_applications management' do
                           local_job: 'Remoto', headhunter: headhunter)
 
         post api_v1_job_applications_path, params: {
-                                          job_application: {job_id: job.id, candidate_id: candidate.id,
+                                          job_application: {job_id: job.id,
+                                          candidate_id: candidate.id,
                                           created_at: 29/12/2019
                                           }
                                         }
@@ -81,7 +85,8 @@ describe 'job_applications management' do
       candidate = Candidate.create!(name: 'Kelly', email: 'kelly@teste.com',
                                     password: '123456')
 
-      headhunter = Headhunter.create!(name: 'Teste', email: 'test@test.com', password: '123456')
+      headhunter = Headhunter.create!(name: 'Teste', email: 'test@test.com',
+                                      password: '123456')
 
       job = Job.create!(title: 'Desenvolvedora', description: 'testando',
                         skills: 'testando', salary: 3.000, job_level: 'Junior',

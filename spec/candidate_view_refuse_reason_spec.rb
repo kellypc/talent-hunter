@@ -5,7 +5,8 @@ feature 'Candidate view refuse reason' do
     candidate = Candidate.create!(name: 'Kelly', email: 'kelly@teste.com',
                                   password: '123456')
 
-    headhunter = Headhunter.create!(name: 'Teste', email: 'test@test.com', password: '123456')
+    headhunter = Headhunter.create!(name: 'Teste', email: 'test@test.com',
+                                    password: '123456')
 
     job = Job.create!(title: 'Desenvolvedora', description: 'testando',
                       skills: 'testando', salary: 3.000, job_level: 'Junior',

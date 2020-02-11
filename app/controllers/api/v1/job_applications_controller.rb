@@ -8,8 +8,9 @@ class Api::V1::JobApplicationsController < Api::V1::ApiController
     if params[:job_application].nil?
       render json: 'Object not found', status: 412
     else
-      @job_application = JobApplication.new(params.require(:job_application).permit(
-                                                            :job_id, :candidate_id))
+      @job_application = JobApplication.new(params.require(:job_application)
+                                                          .permit(:job_id,
+                                                          :candidate_id)
 
         if @job_application.valid?
           @job_application.save!
