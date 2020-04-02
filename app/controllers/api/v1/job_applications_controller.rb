@@ -11,12 +11,11 @@ class Api::V1::JobApplicationsController < Api::V1::ApiController
       @job_application = JobApplication.new(params.require(:job_application)
                                                           .permit(:job_id,
                                                           :candidate_id)
-
         if @job_application.valid?
           @job_application.save!
           render json: @job_application
         else
-          render json: {"message": @car.errors.full_messages}, status: 412
+          render json: {"message": @job_application.errors.full_messages}, status: 412
 
         end
     end
