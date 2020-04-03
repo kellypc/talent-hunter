@@ -25,7 +25,30 @@ feature 'Candidate view proposal' do
     click_link 'Admin'
     click_link 'Minhas Propostas'
 
-    expect(page).to have_content('Veja as propostas que você se recebeu')
+    expect(page).to have_content('Veja as propostas que você se recebeu!')
     expect(page).to have_content(job.title)
   end
+  scenario 'not exit job proposol' do
+    candidate = Candidate.create!(name: 'Kelly', email: 'kelly@teste.com',
+      password: '123456')
+
+    headhunter = Headhunter.create!(name: 'Teste', email: 'test@test.com', password: '123456')
+
+    job = Job.create!(title: 'Desenvolvedora', description: 'testando',
+    skills: 'testando', salary: 3.000, job_level: 'Junior',
+    start_date: '23/01/2012', end_date: '23/02/2020',
+    local_job: 'Remoto', headhunter: headhunter)
+
+    job_application = JobApplication.create!(job: job, candidate: candidate,
+                    created_at: 29/12/2019 )
+
+    login_as(candidate, scope: :candidate)
+    visit root_path
+
+    click_link 'Admin'
+    click_link 'Minhas Propostas'
+
+    expect(page).to have_content('Você ainda não recebeu uma proposta de emprego, aguarde!')
+  end
+
 end
