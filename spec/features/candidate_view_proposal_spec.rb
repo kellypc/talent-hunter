@@ -28,7 +28,7 @@ feature 'Candidate view proposal' do
     expect(page).to have_content('Veja as propostas que você se recebeu!')
     expect(page).to have_content(job.title)
   end
-  scenario 'not exit job proposol' do
+  scenario 'not exist job proposol' do
     candidate = Candidate.create!(name: 'Kelly', email: 'kelly@teste.com',
       password: '123456')
 
